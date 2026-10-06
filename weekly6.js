@@ -202,6 +202,49 @@ lightning.position.set(
 );
 
 scene.add(lightning);
+const redLight = new THREE.PointLight(
+    0xff0000,
+    5,
+    10
+);
+
+redLight.position.set(
+    2.95,
+    2.5,
+    -3.8
+);
+
+scene.add(redLight);
+
+
+const purpleLight = new THREE.PointLight(
+    0xaa00ff,
+    4,
+    10
+);
+
+purpleLight.position.set(
+    -2.0,
+    3.0,
+    0.0
+);
+
+scene.add(purpleLight);
+
+
+const blueLight = new THREE.PointLight(
+    0x0044ff,
+    4,
+    10
+);
+
+blueLight.position.set(
+    4.0,
+    3.0,
+    1.0
+);
+
+scene.add(blueLight);
 
 window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -212,10 +255,22 @@ window.addEventListener("resize", () => {
 function animate() {
     requestAnimationFrame(animate);
     controls.update();
-    lightning.intensity =
+  /* lightning.intensity =
     Math.random() > 0.98
     ? 20
     : 0;
+    */
+    redLight.intensity =
+        4 + Math.sin(Date.now() * 0.01);
+
+    redLight.position.x =
+        2.95 + Math.sin(Date.now() * 0.002) * 2;
+
+    purpleLight.intensity =
+        3 + Math.sin(Date.now() * 0.005);
+
+    blueLight.intensity =
+        3 + Math.cos(Date.now() * 0.006);
     renderer.render(scene, camera);
 }
 
