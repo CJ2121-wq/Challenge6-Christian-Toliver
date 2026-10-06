@@ -246,6 +246,26 @@ blueLight.position.set(
 
 scene.add(blueLight);
 
+const spotLight = new THREE.SpotLight(
+    0xffffff,
+    4
+);
+
+spotLight.position.set(
+    0,
+    8,
+    0
+);
+
+spotLight.target.position.set(
+    2.95,
+    2.5,
+    -4.0
+);
+
+scene.add(spotLight);
+
+
 window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
