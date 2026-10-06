@@ -158,10 +158,10 @@ lampShade.position.set(1.5, 2.18, 1.15);
 scene.add(lampShade);
 box("lamp stem", [0.09, 0.8, 0.09], [1.5, 1.68, 1.15], materials.metal);
 
-const ambientLight = new THREE.HemisphereLight(0xffddb0, 0x6b4f35, 0.8);
+const ambientLight = new THREE.HemisphereLight(0x223344, 0x111111, 0.15);
 scene.add(ambientLight);
 
-const sunlight = new THREE.DirectionalLight(0xffc878, 1.2);
+const sunlight = new THREE.DirectionalLight(0x334466, 0.2);
 sunlight.position.set(-5, 10, 7);
 sunlight.castShadow = true;
 sunlight.shadow.mapSize.set(2048, 2048);
@@ -171,9 +171,23 @@ sunlight.shadow.camera.top = 12;
 sunlight.shadow.camera.bottom = -4;
 scene.add(sunlight);
 
-const lampGlow = new THREE.PointLight(0xffcc88, 35, 6);
+const lampGlow = new THREE.PointLight(0x222244, 0.5, 4);
 lampGlow.position.set(1.5, 2.1, 1.15);
 scene.add(lampGlow);
+
+const tvLight = new THREE.PointLight(
+    0x88aaff,
+    15,
+    8
+);
+
+tvLight.position.set(
+    2.95,
+    2.5,
+    -3.8
+);
+
+scene.add(tvLight);
 
 window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth / window.innerHeight;
